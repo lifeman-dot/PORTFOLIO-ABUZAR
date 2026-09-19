@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abuzar Ahmed — Graphic Designer &amp; AI Creative Artist</title>
+<meta name="description" content="Abuzar Ahmed — Graphic Designer, Visual Storyteller, Video Editor and AI Creative Artist. Portfolio of poster design, branding, advertising, product design and AI-driven creative work.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+</head>
+<style>
+  /* =========================================================
+   ABUZAR AHMED — PORTFOLIO
+   Design tokens
+   ========================================================= */
+:root{
+  --bg:            #0A0908;
+  --bg-alt:        #131110;
+  --bg-alt-2:      #17140F;
+  --panel:         #1B1815;
+  --ink:           #F3EEE3;
+  --ink-dim:       #ABA192;
+  --ink-faint:     #6E6759;
+  --gold:          #C9A24B;
+  --gold-soft:     #E4C878;
+  --crimson:       #8C3A2E;
+  --line:          rgba(243,238,227,0.10);
+  --line-strong:   rgba(243,238,227,0.20);
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --container: 1240px;
+  --radius: 4px;
+  --ease: cubic-bezier(.22,.68,0,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; margin:0; padding:0; }
+button{ font-family:inherit; cursor:pointer; }
+
+::selection{ background:var(--gold); color:#141210; }
+
+.section-inner{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 32px;
+}
+
+.section-label{
+  font-family:var(--sans);
+  font-size:13px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 14px;
+  font-weight:600;
+}
+.section-label.light{ color:var(--gold-soft); }
+
+.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(28px,4vw,44px);
+  line-height:1.15;
+  margin:0 0 20px;
+  color:var(--ink);
+  max-width:18ch;
+}
+.section-title.light{ color:var(--ink); }
+
+/* film-grain texture overlay */
+.grain{
+  position:fixed; inset:0; z-index:9998; pointer-events:none;
+  opacity:0.035; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:15px 30px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  border-radius:2px;
+  border:1px solid transparent;
+  transition:transform .35s var(--ease), background .35s ease, color .35s ease, border-color .35s ease;
+  white-space:nowrap;
+}
+.btn-solid{
+  background:var(--gold);
+  color:#171310;
+}
+.btn-solid:hover{ background:var(--gold-soft); transform:translateY(-2px); }
+
+.btn-outline{
+  border-color:var(--line-strong);
+  color:var(--ink);
+  background:transparent;
+}
+.btn-outline:hover{ border-color:var(--gold); color:var(--gold-soft); transform:translateY(-2px); }
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header{
+  position:fixed; top:0; left:0; right:0;
+  z-index:1000;
+  padding:22px 0;
+  transition:background .4s ease, padding .4s ease, box-shadow .4s ease, border-color .4s ease;
+  border-bottom:1px solid transparent;
+}
+.site-header.scrolled{
+  background:rgba(10,9,8,0.86);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:14px 0;
+  border-bottom-color:var(--line);
+}
+.header-inner{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{ display:flex; align-items:center; gap:10px; }
+.logo-mark{
+  width:36px; height:36px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif);
+  font-size:13px; font-weight:600;
+  color:var(--gold-soft);
+}
+.logo-text{
+  font-family:var(--serif);
+  font-size:18px;
+  letter-spacing:0.01em;
+  color:var(--ink);
+}
+
+.main-nav{ display:flex; align-items:center; gap:36px; }
+.main-nav ul{ display:flex; gap:30px; }
+.nav-link{
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  position:relative;
+  padding-bottom:4px;
+  transition:color .3s ease;
+}
+.nav-link::after{
+  content:'';
+  position:absolute; left:0; bottom:0;
+  width:0; height:1px;
+  background:var(--gold);
+  transition:width .3s var(--ease);
+}
+.nav-link:hover, .nav-link.active-link{ color:var(--ink); }
+.nav-link:hover::after, .nav-link.active-link::after{ width:100%; }
+
+.nav-cta{ padding:11px 22px; }
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none; border:none; padding:6px;
+}
+.hamburger span{
+  width:24px; height:2px; background:var(--ink);
+  transition:transform .3s ease, opacity .3s ease;
+}
+.hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity:0; }
+.hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+.mobile-nav{
+  position:fixed; inset:0; z-index:999;
+  background:#0A0908;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:34px;
+  transform:translateY(-100%);
+  opacity:0;
+  transition:transform .5s var(--ease), opacity .4s ease;
+  pointer-events:none;
+}
+.mobile-nav.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
+.mobile-nav ul{ display:flex; flex-direction:column; align-items:center; gap:26px; }
+.mobile-nav-link{
+  font-family:var(--serif);
+  font-size:30px;
+  color:var(--ink);
+}
+.mobile-nav-cta{ margin-top:10px; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:140px 0 80px;
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(201,162,75,0.10), transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(140,58,46,0.12), transparent 55%),
+    var(--bg);
+  overflow:hidden;
+}
+.hero-filmstrip{
+  position:absolute; top:0; bottom:0; width:26px;
+  background-image:repeating-linear-gradient(to bottom, rgba(243,238,227,0.08) 0 14px, transparent 14px 34px);
+  opacity:0.5;
+}
+.filmstrip-left{ left:0; }
+.filmstrip-right{ right:0; }
+
+.hero-inner{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 60px;
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:60px;
+  align-items:center;
+  width:100%;
+}
+
+.hero-kicker{
+  font-size:13px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:600;
+  margin:0 0 22px;
+}
+
+.hero-title{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(52px,8vw,104px);
+  line-height:0.98;
+  margin:0 0 22px;
+  color:var(--ink);
+}
+.reveal-line{ display:block; overflow:hidden; }
+.reveal-line span{ display:inline-block; will-change:transform; }
+
+.hero-role{
+  font-size:17px;
+  color:var(--ink-dim);
+  font-weight:500;
+  margin:0 0 20px;
+  letter-spacing:0.01em;
+}
+
+.hero-intro{
+  font-size:16.5px;
+  color:var(--ink-dim);
+  max-width:52ch;
+  margin:0 0 38px;
+  line-height:1.75;
+}
+
+.hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+
+.hero-portrait{ position:relative; display:flex; justify-content:center; }
+.portrait-frame{
+  position:relative;
+  width:100%;
+  max-width:380px;
+  border:1px solid var(--line-strong);
+  padding:14px;
+  background:var(--bg-alt);
+}
+.portrait-frame img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  filter:grayscale(0.15) contrast(1.05);
+}
+.portrait-corner{
+  position:absolute; width:26px; height:26px;
+  border:2px solid var(--gold);
+}
+.portrait-corner.tl{ top:-2px; left:-2px; border-right:none; border-bottom:none; }
+.portrait-corner.br{ bottom:-2px; right:-2px; border-left:none; border-top:none; }
+.portrait-tag{
+  position:absolute; bottom:26px; left:26px;
+  background:var(--bg);
+  border:1px solid var(--line-strong);
+  color:var(--gold-soft);
+  font-size:10px;
+  letter-spacing:0.14em;
+  padding:6px 10px;
+  text-transform:uppercase;
+}
+
+.hero-scroll-cue{
+  position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint);
+}
+.hero-scroll-cue span{
+  width:1px; height:34px; background:linear-gradient(var(--gold), transparent);
+  animation:scrollcue 2.2s ease-in-out infinite;
+}
+@keyframes scrollcue{ 0%,100%{ opacity:0.3; } 50%{ opacity:1; } }
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+.about{ padding:140px 0; background:var(--bg); }
+.about-grid{
+  display:grid;
+  grid-template-columns:0.8fr 1.2fr;
+  gap:80px;
+  align-items:start;
+}
+.about-media{ position:sticky; top:120px; }
+.about-photo{
+  border:1px solid var(--line);
+  padding:10px;
+}
+.about-photo img{ width:100%; aspect-ratio:3/4; object-fit:cover; }
+.about-stats{ display:flex; gap:24px; margin-top:24px; }
+.stat{ flex:1; border-top:1px solid var(--line-strong); padding-top:14px; }
+.stat-number{ display:block; font-family:var(--serif); font-size:34px; color:var(--gold-soft); }
+.stat-label{ display:block; font-size:12px; color:var(--ink-dim); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px; }
+
+.about-content p{ color:var(--ink-dim); font-size:16px; max-width:62ch; }
+.about-lead{ font-size:19px !important; color:var(--ink) !important; font-family:var(--serif); line-height:1.5; }
+
+.about-tags{ display:flex; flex-wrap:wrap; gap:10px; margin:30px 0 40px; }
+.about-tags span{
+  border:1px solid var(--line-strong);
+  padding:8px 16px;
+  font-size:12.5px;
+  color:var(--ink-dim);
+  border-radius:2px;
+}
+
+.about-education h3{
+  font-family:var(--serif); font-weight:500; font-size:20px; margin:0 0 18px;
+  border-top:1px solid var(--line-strong); padding-top:26px;
+}
+.about-education ul{ display:flex; flex-direction:column; gap:20px; }
+.about-education li{ display:flex; flex-direction:column; gap:2px; }
+.edu-degree{ font-weight:600; color:var(--ink); }
+.edu-school{ color:var(--ink-dim); font-size:14.5px; }
+.edu-year{ color:var(--gold-soft); font-size:13px; letter-spacing:0.04em; }
+
+/* =========================================================
+   WORK / GALLERY
+   ========================================================= */
+.work{ padding:140px 0; background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.work-intro{ color:var(--ink-dim); max-width:64ch; font-size:16.5px; margin-bottom:46px; }
+
+.filter-bar{
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin-bottom:48px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:36px;
+}
+.filter-btn{
+  background:transparent;
+  border:1px solid var(--line-strong);
+  color:var(--ink-dim);
+  padding:10px 20px;
+  font-size:12.5px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  border-radius:2px;
+  transition:all .3s ease;
+}
+.filter-btn:hover{ color:var(--ink); border-color:var(--ink-dim); }
+.filter-btn.active{ background:var(--gold); border-color:var(--gold); color:#171310; font-weight:600; }
+
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:6px;
+}
+.project-card{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  background:var(--panel);
+  aspect-ratio:4/5;
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .6s var(--ease), transform .6s var(--ease);
+}
+.project-card.in-view{ opacity:1; transform:translateY(0); }
+.project-card.hidden-card{ display:none; }
+
+.project-card img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .7s var(--ease), filter .7s ease;
+  filter:saturate(0.9);
+}
+.project-card:hover img{ transform:scale(1.07); filter:saturate(1.05); }
+
+.project-overlay{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:26px;
+  background:linear-gradient(to top, rgba(6,5,4,0.92) 0%, rgba(6,5,4,0.5) 40%, transparent 75%);
+  opacity:0.92;
+  transition:opacity .4s ease;
+}
+.project-category{
+  font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:8px; display:block;
+}
+.project-title{ font-family:var(--serif); font-size:21px; color:var(--ink); margin:0 0 4px; }
+.project-view{
+  font-size:12px; color:var(--ink-dim); letter-spacing:0.05em;
+  display:inline-flex; align-items:center; gap:6px;
+  margin-top:10px; opacity:0; transform:translateY(6px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+.project-card:hover .project-view{ opacity:1; transform:translateY(0); }
+
+/* =========================================================
+   PROJECT AREAS
+   ========================================================= */
+.areas{ padding:140px 0; background:var(--bg); }
+.areas-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:2px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.area-card{
+  background:var(--bg);
+  padding:38px 28px;
+  transition:background .4s ease;
+}
+.area-card:hover{ background:var(--bg-alt-2); }
+.area-icon{ font-size:26px; display:block; margin-bottom:18px; }
+.area-card h3{ font-family:var(--serif); font-weight:500; font-size:18px; margin:0 0 10px; line-height:1.3; }
+.area-card p{ font-size:14px; color:var(--ink-dim); margin:0; line-height:1.6; }
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+.skills{ padding:140px 0; background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+}
+.skill-card{
+  border:1px solid var(--line);
+  padding:34px 26px;
+  transition:border-color .4s ease, transform .4s var(--ease), background .4s ease;
+}
+.skill-card:hover, .skill-card:focus-visible{
+  border-color:var(--gold);
+  transform:translateY(-6px);
+  background:var(--bg-alt-2);
+  outline:none;
+}
+.skill-card-head{ display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+.skill-icon{ font-size:22px; }
+.skill-card h3{ font-family:var(--serif); font-weight:500; font-size:18px; margin:0; }
+.skill-card ul{ display:flex; flex-direction:column; gap:11px; }
+.skill-card li{
+  font-size:14px; color:var(--ink-dim); padding-left:16px; position:relative;
+}
+.skill-card li::before{
+  content:''; position:absolute; left:0; top:8px; width:6px; height:1px; background:var(--gold);
+}
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+.process{ padding:140px 0; background:var(--bg); }
+.process-track{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:0;
+  border-top:1px solid var(--line-strong);
+}
+.process-step{
+  padding:34px 28px 0 0;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.process-step:last-child{ border-right:none; }
+.process-num{
+  display:block; font-family:var(--serif); font-size:15px; color:var(--gold);
+  margin-bottom:16px; margin-top:-1px;
+}
+.process-step h3{ font-family:var(--serif); font-weight:500; font-size:22px; margin:0 0 10px; }
+.process-step p{ color:var(--ink-dim); font-size:14.5px; max-width:26ch; }
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+.experience{ padding:140px 0; background:var(--bg-alt-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.experience-grid{
+  display:grid;
+  grid-template-columns:0.85fr 1.15fr;
+  gap:70px;
+}
+.experience-intro{ color:var(--ink-dim); font-size:16px; max-width:48ch; }
+.experience-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+.experience-tags span{
+  border:1px solid var(--line-strong); color:var(--ink-dim);
+  padding:8px 16px; font-size:12.5px; border-radius:2px;
+}
+.experience-list{ display:flex; flex-direction:column; gap:16px; }
+.experience-list li{
+  position:relative;
+  padding-left:26px;
+  color:var(--ink-dim);
+  font-size:15px;
+  line-height:1.65;
+  border-bottom:1px solid var(--line);
+  padding-bottom:16px;
+}
+.experience-list li:last-child{ border-bottom:none; }
+.experience-list li::before{
+  content:'—';
+  position:absolute; left:0; top:0;
+  color:var(--gold);
+}
+
+/* =========================================================
+   CAREER DIRECTION
+   ========================================================= */
+.career{ padding:140px 0; background:var(--bg); }
+.career-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:70px; }
+.career-grid > div > p{ color:var(--ink-dim); font-size:16px; max-width:44ch; }
+.career-columns{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+.career-columns h3{ font-family:var(--serif); font-weight:500; font-size:18px; margin:0 0 18px; color:var(--gold-soft); }
+.pill-list{ display:flex; flex-wrap:wrap; gap:9px; }
+.pill-list li{
+  border:1px solid var(--line-strong);
+  padding:8px 14px;
+  font-size:13px;
+  color:var(--ink-dim);
+  border-radius:20px;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+.contact{ padding:140px 0 120px; background:var(--bg-alt); border-top:1px solid var(--line); }
+.contact-intro{ color:var(--ink-dim); font-size:16.5px; max-width:60ch; margin-bottom:50px; }
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:2px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.contact-card{
+  background:var(--bg-alt);
+  padding:32px 26px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  transition:background .35s ease, transform .35s var(--ease);
+}
+.contact-card:hover{ background:var(--bg-alt-2); transform:translateY(-4px); }
+.contact-icon{ font-size:22px; margin-bottom:6px; font-style:normal; font-weight:700; color:var(--gold-soft); }
+.contact-label{ font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-faint); }
+.contact-value{ font-size:15.5px; color:var(--ink); word-break:break-word; }
+.contact-location{ cursor:default; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{ background:#060504; padding:60px 0 30px; }
+.footer-inner{
+  display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px;
+  padding-bottom:36px; border-bottom:1px solid var(--line);
+}
+.footer-brand{ display:flex; flex-direction:column; gap:8px; }
+.footer-name{ font-family:var(--serif); font-size:24px; }
+.footer-tagline{ font-size:13px; color:var(--ink-dim); }
+.footer-links{ display:flex; gap:26px; flex-wrap:wrap; }
+.footer-links a{ font-size:13px; color:var(--ink-dim); letter-spacing:0.04em; transition:color .3s ease; }
+.footer-links a:hover{ color:var(--gold-soft); }
+.footer-copy{ text-align:center; color:var(--ink-faint); font-size:12.5px; margin:28px 0 0; }
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+.modal-overlay{
+  position:fixed; inset:0; z-index:2000;
+  background:rgba(6,5,4,0.88);
+  backdrop-filter:blur(6px);
+  display:flex; align-items:center; justify-content:center;
+  padding:30px;
+  opacity:0; visibility:hidden;
+  transition:opacity .4s ease, visibility .4s ease;
+}
+.modal-overlay.open{ opacity:1; visibility:visible; }
+.modal{
+  background:var(--bg-alt-2);
+  border:1px solid var(--line-strong);
+  max-width:980px; width:100%;
+  max-height:88vh;
+  overflow-y:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  transform:translateY(30px) scale(0.98);
+  transition:transform .45s var(--ease);
+}
+.modal-overlay.open .modal{ transform:translateY(0) scale(1); }
+.modal-close{
+  position:absolute; top:16px; right:16px; z-index:5;
+  width:38px; height:38px;
+  border:1px solid var(--line-strong);
+  background:rgba(6,5,4,0.6);
+  color:var(--ink);
+  font-size:22px; line-height:1;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color .3s ease, color .3s ease;
+}
+.modal-close:hover{ border-color:var(--gold); color:var(--gold-soft); }
+.modal-media{ background:#000; display:flex; align-items:center; }
+.modal-media img{ width:100%; height:100%; object-fit:contain; max-height:88vh; }
+.modal-body{ padding:44px 40px; }
+.modal-category{
+  display:inline-block; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--gold-soft); border:1px solid var(--line-strong); padding:6px 12px; margin-bottom:16px;
+}
+.modal-body h3{ font-family:var(--serif); font-size:28px; font-weight:500; margin:0 0 26px; line-height:1.2; }
+.modal-field{ margin-bottom:22px; }
+.modal-field h4{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 8px; }
+.modal-field p{ font-size:14.5px; color:var(--ink-dim); line-height:1.65; margin:0; }
+.modal-field-row{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+
+/* =========================================================
+   REVEAL ANIMATION UTILITY
+   ========================================================= */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .8s var(--ease), transform .8s var(--ease);
+}
+[data-reveal].revealed{ opacity:1; transform:translateY(0); }
+
+.fade-up{
+  opacity:0; transform:translateY(30px);
+  transition:opacity .7s var(--ease), transform .7s var(--ease);
+}
+.fade-up.revealed{ opacity:1; transform:translateY(0); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:1080px){
+  .about-grid, .experience-grid, .career-grid{ grid-template-columns:1fr; gap:50px; }
+  .about-media{ position:static; max-width:400px; }
+  .areas-grid{ grid-template-columns:repeat(2,1fr); }
+  .skills-grid{ grid-template-columns:repeat(2,1fr); }
+  .project-grid{ grid-template-columns:repeat(2,1fr); }
+  .process-track{ grid-template-columns:repeat(2,1fr); }
+  .process-step{ border-bottom:1px solid var(--line); padding-bottom:34px; margin-bottom:6px; }
+  .contact-grid{ grid-template-columns:repeat(2,1fr); }
+  .modal{ grid-template-columns:1fr; }
+  .modal-media img{ max-height:340px; }
+}
+
+@media (max-width:860px){
+  .main-nav{ display:none; }
+  .hamburger{ display:flex; }
+  .hero-inner{ grid-template-columns:1fr; padding:0 24px; text-align:left; }
+  .hero-portrait{ order:-1; max-width:280px; margin:0 0 20px; }
+  .hero{ padding-top:120px; }
+  .hero-filmstrip{ display:none; }
+  .section-inner{ padding:0 22px; }
+  .about, .work, .areas, .skills, .process, .experience, .career, .contact{ padding:90px 0; }
+}
+
+@media (max-width:640px){
+  .areas-grid, .skills-grid{ grid-template-columns:1fr; }
+  .project-grid{ grid-template-columns:1fr; }
+  .process-track{ grid-template-columns:1fr; }
+  .process-step{ border-right:none; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .career-columns{ grid-template-columns:1fr; gap:26px; }
+  .modal-field-row{ grid-template-columns:1fr; }
+  .modal-body{ padding:32px 24px; }
+  .footer-inner{ flex-direction:column; }
+  .hero-actions .btn{ width:100%; }
+  .filter-bar{ gap:8px; }
+  .filter-btn{ padding:9px 14px; font-size:11.5px; }
+}
+</style>
+<body>
+
+<!-- ============ CUSTOM CURSOR / FILM GRAIN OVERLAY ============ -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="logo">
+      <span class="logo-mark">AA</span>
+      <span class="logo-text">Abuzar Ahmed</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#home" class="nav-link active-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-outline nav-cta">Let's Work Together</a>
+    </nav>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV ============ -->
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="#home" class="mobile-nav-link">Home</a></li>
+    <li><a href="#about" class="mobile-nav-link">About</a></li>
+    <li><a href="#work" class="mobile-nav-link">Work</a></li>
+    <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+    <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+    <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn btn-solid mobile-nav-cta">Let's Work Together</a>
+</div>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-filmstrip filmstrip-left" aria-hidden="true"></div>
+    <div class="hero-filmstrip filmstrip-right" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-kicker" data-reveal>Graphic Designer — Ghaziabad, India</p>
+        <h1 class="hero-title">
+          <span class="reveal-line"><span>Abuzar</span></span>
+          <span class="reveal-line"><span>Ahmed</span></span>
+        </h1>
+        <p class="hero-role" data-reveal>Graphic Designer&nbsp;·&nbsp;AI Creative Artist&nbsp;·&nbsp;Video Editor&nbsp;·&nbsp;Visual Storyteller</p>
+        <p class="hero-intro" data-reveal>Creative designer and visual storyteller focused on graphic design, cinematic visuals, branding, advertising, video editing, and AI-powered creative production.</p>
+        <div class="hero-actions" data-reveal>
+          <a href="#work" class="btn btn-solid">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-portrait" data-reveal>
+        <div class="portrait-frame">
+          <img src="/assets/images/profile.png" alt="Portrait of Abuzar Ahmed, Graphic Designer and AI Creative Artist, working at his desk" loading="eager">
+          <div class="portrait-corner tl"></div>
+          <div class="portrait-corner br"></div>
+          <span class="portrait-tag">DIRECTOR'S CUT</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue" aria-hidden="true"><span></span> Scroll</div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="section-inner about-grid">
+      <div class="about-media">
+        <div class="about-photo">
+          <img src="/assets/images/kings-juice.jpeg" alt="Abuzar Ahmed at his workstation" loading="lazy">
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">14+</span>
+            <span class="stat-label">Creative Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Disciplines Combined</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <p class="section-label">About</p>
+        <h2 class="section-title">A designer who works from idea to final frame.</h2>
+        <p class="about-lead">Abuzar Ahmed is a graphic designer and visual storyteller working across graphic design, video editing, AI creative production, branding, and creative concept development.</p>
+        <p>His practice moves through advertising, cinematic design, and brand identity — building each project from an initial concept or story idea through to its final visual execution. Whether the deliverable is a poster, a product campaign, a brand identity, or an AI-assisted visual experiment, the approach stays the same: understand the story first, then design the image that tells it.</p>
+        <p>This full-circle process — idea, direction, creation, execution — is what he brings to recruiters, agencies, production companies, and brands looking for a designer who can think in concepts as well as pixels.</p>
+
+        <div class="about-tags">
+          <span>Graphic Design</span>
+          <span>Video Editing</span>
+          <span>AI Creative Production</span>
+          <span>Branding</span>
+          <span>Visual Storytelling</span>
+          <span>Creative Concept Development</span>
+          <span>Advertising</span>
+          <span>Cinematic Design</span>
+        </div>
+
+        <div class="about-education">
+          <h3>Education</h3>
+          <ul>
+            <li>
+              <span class="edu-degree">Master Diploma in Digital Marketing (MDDM)</span>
+              <span class="edu-school">G-TEC Education City, India</span>
+              <span class="edu-year">2022 – 2025</span>
+            </li>
+            <li>
+              <span class="edu-degree">Bachelor of Business Administration (BBA)</span>
+              <span class="edu-school">IMS Noida, India</span>
+              <span class="edu-year">2022 – 2025</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK / PROJECTS ============ -->
+  <section class="work" id="work">
+    <div class="section-inner">
+      <p class="section-label light">Selected Work</p>
+      <h2 class="section-title light">Creative Showcase</h2>
+      <p class="work-intro">Fourteen projects spanning poster design, branding, product advertising, packaging, and AI-assisted image creation — each one built from concept through final visual execution.</p>
+
+      <div class="filter-bar" id="filterBar" role="tablist" aria-label="Filter projects by category">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="graphic-design">Graphic Design</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="poster">Poster</button>
+        <button class="filter-btn" data-filter="ai-art">AI Art</button>
+        <button class="filter-btn" data-filter="advertising">Advertising</button>
+        <button class="filter-btn" data-filter="product">Product</button>
+        <button class="filter-btn" data-filter="cinematic">Cinematic</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid"><!-- injected by script.js --></div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECT AREAS ============ -->
+  <section class="areas" id="areas">
+    <div class="section-inner">
+      <p class="section-label">Where I Work</p>
+      <h2 class="section-title">Project Areas</h2>
+      <div class="areas-grid">
+        <div class="area-card">
+          <span class="area-icon">🎬</span>
+          <h3>Cinematic &amp; Entertainment Visuals</h3>
+          <p>Movie posters and dramatic key-art built on composition, contrast, and mood.</p>
+        </div>
+        <div class="area-card">
+          <span class="area-icon">✨</span>
+          <h3>AI Video &amp; Visual Experimentation</h3>
+          <p>Generative AI imagery and video concepts produced with Google Flow and Seedance.</p>
+        </div>
+        <div class="area-card">
+          <span class="area-icon">📣</span>
+          <h3>Brand &amp; Advertising</h3>
+          <p>Campaign artwork, social creatives, and advertising design across categories.</p>
+        </div>
+        <div class="area-card">
+          <span class="area-icon">✍️</span>
+          <h3>Creative Writing</h3>
+          <p>Original stories and creative concepts developed as the foundation for visual work.</p>
+        </div>
+        <div class="area-card">
+          <span class="area-icon">🎞️</span>
+          <h3>Movie Poster &amp; Cinematic Design</h3>
+          <p>Theatrical-style one-sheets built with panel layouts, typography, and color grading.</p>
+        </div>
+        <div class="area-card">
+          <span class="area-icon">🛍️</span>
+          <h3>Product &amp; Promotional Advertising</h3>
+          <p>Product-led ad design for technology, beverage, beauty, and lifestyle categories.</p>
+        </div>
+        <div class="area-card">
+          <span class="area-icon">👗</span>
+          <h3>Fashion &amp; E-commerce Branding</h3>
+          <p>Editorial-style fashion and lifestyle campaign visuals for retail brands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="skills" id="skills">
+    <div class="section-inner">
+      <p class="section-label light">Capabilities</p>
+      <h2 class="section-title light">Technical Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card" tabindex="0">
+          <div class="skill-card-head">
+            <span class="skill-icon">🎨</span>
+            <h3>Design</h3>
+          </div>
+          <ul>
+            <li>Adobe Photoshop</li>
+            <li>Graphic Design</li>
+            <li>Poster &amp; Campaign Design</li>
+            <li>Typography &amp; Art Direction</li>
+            <li>Social Media Creatives</li>
+            <li>Product &amp; Promotional Design</li>
+          </ul>
+        </div>
+
+        <div class="skill-card" tabindex="0">
+          <div class="skill-card-head">
+            <span class="skill-icon">🎞️</span>
+            <h3>Video</h3>
+          </div>
+          <ul>
+            <li>Adobe Premiere Pro</li>
+            <li>Reels &amp; Short-form Content</li>
+            <li>Cinematic Editing</li>
+          </ul>
+        </div>
+
+        <div class="skill-card" tabindex="0">
+          <div class="skill-card-head">
+            <span class="skill-icon">🤖</span>
+            <h3>AI &amp; Creative Production</h3>
+          </div>
+          <ul>
+            <li>AI Image Creation</li>
+            <li>AI Video Generation</li>
+            <li>Google Flow</li>
+            <li>Seedance</li>
+            <li>Generative AI Creative Production</li>
+          </ul>
+        </div>
+
+        <div class="skill-card" tabindex="0">
+          <div class="skill-card-head">
+            <span class="skill-icon">📖</span>
+            <h3>Storytelling</h3>
+          </div>
+          <ul>
+            <li>Story &amp; Character Development</li>
+            <li>Screenplay</li>
+            <li>Visual Storytelling</li>
+            <li>Creative Concept Development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CREATIVE PROCESS ============ -->
+  <section class="process" id="process">
+    <div class="section-inner">
+      <p class="section-label">Method</p>
+      <h2 class="section-title">Creative Process</h2>
+
+      <div class="process-track">
+        <div class="process-step">
+          <span class="process-num">01</span>
+          <h3>Idea</h3>
+          <p>Concept development and creative research.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-num">02</span>
+          <h3>Direction</h3>
+          <p>Visual style, composition, storytelling, and art direction.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-num">03</span>
+          <h3>Creation</h3>
+          <p>Graphic design, editing, AI generation, and visual production.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-num">04</span>
+          <h3>Final Execution</h3>
+          <p>Polishing, presentation, and final creative output.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="experience" id="experience">
+    <div class="section-inner experience-grid">
+      <div>
+        <p class="section-label light">Experience</p>
+        <h2 class="section-title light">Independent Creative Projects</h2>
+        <p class="experience-intro">Working independently across graphic design, video editing, AI creative production, branding, visual storytelling, and creative concept development.</p>
+
+        <div class="experience-tags">
+          <span>Graphic Design</span>
+          <span>Video Editing</span>
+          <span>AI Creative Production</span>
+          <span>Branding</span>
+          <span>Visual Storytelling</span>
+          <span>Creative Concept Development</span>
+        </div>
+      </div>
+
+      <ul class="experience-list">
+        <li>Developed visual concepts for fashion, advertising, products, brands, and entertainment projects.</li>
+        <li>Created posters, campaign artwork, social media creatives, product advertisements, packaging, and brand identities.</li>
+        <li>Edited promotional and creative videos using Adobe Premiere Pro.</li>
+        <li>Created AI-generated video concepts using Google Flow and Seedance.</li>
+        <li>Combined graphic design, video editing, and generative AI for cinematic and experimental visual storytelling.</li>
+        <li>Developed original stories and creative concepts.</li>
+        <li>Worked across cinematic, luxury, editorial, dramatic, minimal, and commercial visual styles.</li>
+        <li>Developed projects from the initial idea through final visual execution.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CAREER DIRECTION ============ -->
+  <section class="career" id="career">
+    <div class="section-inner career-grid">
+      <div>
+        <p class="section-label">Looking Ahead</p>
+        <h2 class="section-title">Creative Career Direction</h2>
+        <p>Abuzar Ahmed is interested in opportunities across film, entertainment, production, advertising, OTT, music, creative studios, digital media, branding, and visual content production.</p>
+      </div>
+      <div class="career-columns">
+        <div>
+          <h3>Industries</h3>
+          <ul class="pill-list">
+            <li>Film</li><li>Entertainment</li><li>Production</li><li>Advertising</li>
+            <li>OTT</li><li>Music</li><li>Creative Studios</li><li>Digital Media</li>
+            <li>Branding</li><li>Visual Content Production</li>
+          </ul>
+        </div>
+        <div>
+          <h3>How He Contributes</h3>
+          <ul class="pill-list">
+            <li>Visual Design</li><li>Video Editing</li><li>AI-generated Content</li>
+            <li>Storytelling</li><li>Creative Concept Development</li><li>Brand Communication</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <p class="section-label light">Get In Touch</p>
+      <h2 class="section-title light">Let's create something worth watching.</h2>
+      <p class="contact-intro">Open to opportunities in film, entertainment, advertising, OTT, music, branding, and digital media. Reach out directly, or through any of the channels below.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:ahmedmonu00111@gmail.com">
+          <span class="contact-icon">✉️</span>
+          <span class="contact-label">Email</span>
+          <span class="contact-value">ahmedmonu00111@gmail.com</span>
+        </a>
+        <a class="contact-card" href="tel:+918800832393">
+          <span class="contact-icon">📞</span>
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+91 88008 32393</span>
+        </a>
+        <a class="contact-card" href="https://wa.me/918800832393" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">💬</span>
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">Message Now</span>
+        </a>
+        <a class="contact-card" href="https://in.linkedin.com/in/abuzar-ahmed-0b74ba414" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">in</span>
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">/abuzar-ahmed</span>
+        </a>
+        <a class="contact-card" href="https://www.instagram.com/_abuzar_ahmed/" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">📷</span>
+          <span class="contact-label">Instagram</span>
+          <span class="contact-value">@_abuzar_ahmed_</span>
+        </a>
+        <div class="contact-card contact-location">
+          <span class="contact-icon">📍</span>
+          <span class="contact-label">Location</span>
+          <span class="contact-value">Nai Basti, Ghaziabad, India</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="section-inner footer-inner">
+    <div class="footer-brand">
+      <span class="footer-name">Abuzar Ahmed</span>
+      <span class="footer-tagline">Graphic Designer • AI Creative Artist • Video Editor • Visual Storyteller</span>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:ahmedmonu00111@gmail.com">Email</a>
+      <a href="tel:+918800832393">Phone</a>
+      <a href="https://in.linkedin.com/in/abuzar-ahmed-0b74ba414" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.instagram.com/_abuzar_ahmed/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://wa.me/918800832393" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Abuzar Ahmed. All Rights Reserved.</p>
+</footer>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close project details">&times;</button>
+    <div class="modal-media">
+      <img id="modalImage" src="" alt="">
+    </div>
+    <div class="modal-body">
+      <span class="modal-category" id="modalCategory"></span>
+      <h3 id="modalTitle"></h3>
+      <div class="modal-field">
+        <h4>Creative Concept</h4>
+        <p id="modalConcept"></p>
+      </div>
+      <div class="modal-field">
+        <h4>Design Direction</h4>
+        <p id="modalDirection"></p>
+      </div>
+      <div class="modal-field-row">
+        <div class="modal-field">
+          <h4>Visual Style</h4>
+          <p id="modalStyle"></p>
+        </div>
+        <div class="modal-field">
+          <h4>Tools</h4>
+          <p id="modalTools"></p>
+        </div>
+      </div>
+      <div class="modal-field">
+        <h4>Outcome</h4>
+        <p id="modalOutcome"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* =========================================================
+   ABUZAR AHMED — PORTFOLIO
+   Project data + interactions
+   ========================================================= */
+
+const PROJECTS = [
+  {
+    id: "american-gangster",
+    title: "American Gangster — Fan Key Art",
+    image: "assets/images/americangangster.jpeg",
+    alt: "American Gangster movie poster with five vertical character panels on a red and black background",
+    category: "Movie Poster",
+    tags: ["poster", "cinematic", "graphic-design"],
+    concept: "A theatrical one-sheet built around an ensemble crime drama, using a \"based on a true story\" framing device to set stakes before a single character is shown.",
+    direction: "Five vertical panels each isolate one character in a different emotional beat, unified by a single red-to-black colour grade and a distressed, weathered texture across the whole frame. The title sits in bold condensed type at the base, anchoring the composition the way a real theatrical poster would.",
+    style: "Cinematic, dramatic, editorial poster design.",
+    tools: "Adobe Photoshop — photo compositing, colour grading, and poster typography.",
+    outcome: "A poster that reads instantly as a crime-thriller one-sheet, demonstrating the panel-based key-art format used across the film and OTT industry."
+  },
+  {
+    id: "welcome-simulation",
+    title: "\"Welcome to the Simulation\"",
+    image: "assets/images/welcome-simulation.jpeg",
+    alt: "Surreal poster of a city skyline and airplane emerging from a coffee cup on a cream background",
+    category: "AI Image Branding",
+    tags: ["ai-art", "poster", "cinematic", "graphic-design"],
+    concept: "A surreal, single-image visual essay built around the line \"Welcome to the simulation\" — a city skyline, clouds, and an aircraft rising out of an ordinary coffee cup to suggest that everyday reality is smaller, and stranger, than it appears.",
+    direction: "An oversized negative-space cream background isolates the composited scene, with quote-style type set above and a credit line below — treating the artwork like an editorial print or gallery poster rather than a conventional ad.",
+    style: "Surreal, minimal, experimental.",
+    tools: "AI-assisted image generation combined with Photoshop compositing.",
+    outcome: "A stand-alone visual experiment that shows how AI-generated elements can be composited with traditional design principles to produce a conceptual, thought-provoking image."
+  },
+  {
+    id: "book-cover",
+    title: "\"Lost in My Own Thoughts\" — Book Cover",
+    image: "assets/images/bookcover.jpeg",
+    alt: "Red hardcover book titled Lost in My Own Thoughts mocked up on a wooden café table",
+    category: "Book & Café Mockup",
+    tags: ["graphic-design", "poster", "cinematic"],
+    concept: "A book cover built around a single visual metaphor — a figure falling into a spotlight where another figure stands with arms raised — to illustrate the idea of being \"lost in your own thoughts.\"",
+    direction: "A bold red field carries a serif title and a spotlight silhouette illustration as the sole visual event, then the finished cover is presented as a realistic hardcover mockup on a sunlit café table for a lifestyle-style presentation shot.",
+    style: "Minimal, dramatic, editorial.",
+    tools: "Adobe Photoshop, as credited directly on the artwork.",
+    outcome: "A complete book-cover concept and presentation mockup, showing design work carried from a flat cover file through to a realistic in-context product shot."
+  },
+  {
+    id: "kings-juice",
+    title: "King's Juice — \"Fresh Feel\" Campaign",
+    image: "assets/images/kings-juice.jpeg",
+    alt: "Orange-themed advertisement for King's Juice orange flavoured drink with the headline Fresh Feel",
+    category: "Brand Advertising Post",
+    tags: ["advertising", "branding", "product", "graphic-design"],
+    concept: "A concept beverage-brand advertisement built to sell a single sensory idea — freshness — through colour, texture, and motion rather than copy.",
+    direction: "Hand-painted brush-style headline type, water-droplet product renders, flying citrus wedges and leaves, and a \"100% Natural\" badge work together inside a saturated orange field, with the King's Juice crown logo anchoring the top right corner.",
+    style: "Commercial, vibrant, energetic.",
+    tools: "Adobe Photoshop — product compositing, typography, and colour treatment.",
+    outcome: "A shelf-ready style social/print advertisement concept for a beverage brand, demonstrating packaging-led product advertising design."
+  },
+  {
+    id: "iphone17",
+    title: "iPhone 17 — \"Magichromatic\" Concept Ad",
+    image: "assets/images/iphone17.jpeg",
+    alt: "Apple iPhone 17 advertisement concept showing five colourways with the headline Magichromatic",
+    category: "AI Image Branding",
+    tags: ["ai-art", "product", "advertising", "graphic-design"],
+    concept: "A concept product-launch advertisement exploring how a premium tech brand might announce a new colourway lineup, built as a personal design exercise rather than official client work.",
+    direction: "A rendered five-device colour lineup sits beneath a gradient wordmark treatment on a stark white field — a minimal, type-led layout in the style of a flagship tech launch page.",
+    style: "Minimal, futuristic, commercial.",
+    tools: "AI-assisted product rendering combined with Photoshop layout and typography.",
+    outcome: "A polished concept ad demonstrating product-launch styling: gradient wordmark treatment, device staging, and restrained white-space layout."
+  },
+  {
+    id: "fujifilm",
+    title: "Fujifilm X-T30 — \"See Beyond the Ordinary\"",
+    image: "assets/images/fujifilm.jpeg",
+    alt: "Fujifilm X-T30 camera advertisement with an AI-generated lion photo shown on the viewfinder screen",
+    category: "AI Image Branding",
+    tags: ["ai-art", "product", "advertising"],
+    concept: "A camera-brand concept advertisement that proves the product's capability by showing what it can capture — in this case, an AI-generated wildlife portrait framed inside the camera's own viewfinder interface.",
+    direction: "A realistic viewfinder overlay (histogram, focus points, exposure readout) frames the hero image, while the physical product sits below alongside a clean feature-icon breakdown of sensor, video, autofocus, and battery specs.",
+    style: "Commercial, technical, editorial.",
+    tools: "AI image generation for the featured wildlife shot, combined with Photoshop for the interface overlay and product layout.",
+    outcome: "A concept ad that merges generative AI imagery with traditional product-advertising layout — a direct example of AI-assisted creative production."
+  },
+  {
+    id: "louis-vuitton",
+    title: "Louis Vuitton — \"Timeless Style\" Campaign",
+    image: "assets/images/louisvuitton.jpeg",
+    alt: "Louis Vuitton Neverfull MM handbag advertisement with a model walking on a European street",
+    category: "Fashion & E-commerce Branding",
+    tags: ["branding", "advertising", "cinematic", "graphic-design"],
+    concept: "A luxury fashion e-commerce advertisement concept built around a single lifestyle photograph, positioning a handbag through aspiration and everyday elegance rather than a plain product shot.",
+    direction: "Editorial street photography is paired with a serif headline (\"Timeless style. Everyday icon.\"), three benefit call-outs with line icons, and a clear call-to-action band — a layout modelled on real luxury e-commerce landing pages.",
+    style: "Editorial, luxury, minimal.",
+    tools: "Photoshop layout, typography, and photo retouching.",
+    outcome: "A concept fashion campaign layout demonstrating e-commerce and luxury branding design conventions."
+  },
+  {
+    id: "cetaphil",
+    title: "Cetaphil — \"Deep Hydration\" Product Ad",
+    image: "assets/images/cetaphil.jpeg",
+    alt: "Cetaphil skincare product advertisement with a lineup of lotion bottles on a green botanical background",
+    category: "Brand Advertising Post",
+    tags: ["advertising", "branding", "product"],
+    concept: "A skincare product-lineup advertisement designed around the reassurance of a dermatology-style brand — soft, clean, and \"made for sensitive skin.\"",
+    direction: "A tiered green-block product display staggers five bottle sizes by height, framed with hand-drawn heart doodles and botanical leaf textures to keep the mood warm rather than clinical.",
+    style: "Soft, natural, commercial.",
+    tools: "Photoshop — product arrangement, colour grading, and layout.",
+    outcome: "A concept product-range advertisement demonstrating category-appropriate tone: gentle, botanical, and trust-driven for a personal-care brand."
+  },
+  {
+    id: "amazon",
+    title: "Amazon — \"Shop Prime\" Lifestyle Ad",
+    image: "assets/images/amazon.jpeg",
+    alt: "Amazon Prime advertisement with a stacked collage of shopping products on an orange background",
+    category: "Brand Advertising Post",
+    tags: ["advertising", "branding", "product"],
+    concept: "A concept lifestyle advertisement for an e-commerce platform, built to communicate variety and everyday convenience through a single dense product collage rather than one hero product.",
+    direction: "Sneakers, a guitar, a lamp, a coffee maker, a smart speaker and delivery boxes are stacked into one balanced pyramid composition on a saturated brand-orange field, with the wordmark and \"Shop / Prime\" lockup anchoring the page.",
+    style: "Commercial, playful, high-energy.",
+    tools: "Photoshop compositing and product arrangement.",
+    outcome: "A concept retail advertisement demonstrating multi-product collage composition for e-commerce marketing."
+  },
+  {
+    id: "dell-xps",
+    title: "Dell XPS 16 — \"Power. Beauty. Precision.\"",
+    image: "assets/images/dellxps.jpeg",
+    alt: "Dell XPS 16 laptop advertisement in a dark luxury studio setting with a colourful abstract wallpaper",
+    category: "Product Design",
+    tags: ["product", "advertising", "graphic-design"],
+    concept: "A concept premium-laptop advertisement aimed at creative professionals, positioning the device through a moody studio environment rather than a plain product cutout.",
+    direction: "The laptop is staged on a dark marble surface inside a softly lit studio, paired with a left-aligned spec column and a bottom strip of Adobe Creative Cloud app icons — signalling \"built for creators\" without needing a headline to say it.",
+    style: "Luxury, minimal, futuristic.",
+    tools: "Photoshop compositing, product rendering, and layout design.",
+    outcome: "A concept technology advertisement demonstrating premium product staging for a creative-professional audience."
+  },
+  {
+    id: "starbucks",
+    title: "Starbucks Maison Café — Espresso Packaging",
+    image: "assets/images/starbucks.jpeg",
+    alt: "Starbucks Maison Café espresso packaging advertisement with a coffee bag and steaming espresso cup",
+    category: "Product Design",
+    tags: ["product", "branding", "advertising"],
+    concept: "A concept packaging and promotional ad for a premium espresso product line, built to communicate ritual and quality (\"single origin,\" \"100% Arabica\") rather than a discount-driven message.",
+    direction: "A matte black stand-up pouch with gold botanical line art sits beside a glass espresso cup on a dark wood surface scattered with coffee beans, with a gold \"Order Now\" call-to-action and social engagement icons framing it as a social-ready promotional post.",
+    style: "Luxury, warm, editorial.",
+    tools: "Photoshop — packaging mockup, product photography compositing, and typography.",
+    outcome: "A concept packaging design and matching promotional ad, showing packaging design carried through to a finished social-media-ready post."
+  },
+  {
+    id: "nike-sneaker",
+    title: "Sneaker Drop — \"New Arrival\" Ad Template",
+    image: "assets/images/nike-sneaker.jpeg",
+    alt: "Blue sneaker advertisement template with bold Sneaker headline and flat fifty percent off badge",
+    category: "Billboard Design",
+    tags: ["advertising", "product", "graphic-design"],
+    concept: "A bold, large-format promotional layout for a footwear drop, designed to work at billboard or out-of-home scale where a message needs to land in seconds.",
+    direction: "A dramatic diagonal product angle, oversized outlined type, and a striped blue gradient background maximise contrast and shelf/street impact, with a discount badge and call-to-action placed for instant readability from a distance.",
+    style: "Bold, dynamic, commercial.",
+    tools: "Photoshop — product cutout, typography, and layout.",
+    outcome: "A large-format promotional template demonstrating high-impact advertising design suited to billboard and out-of-home placement."
+  },
+  {
+    id: "aurora-v1",
+    title: "Aurora Digital — Agency Ad (First Pass)",
+    image: "assets/images/aurora-v1.jpeg",
+    alt: "Early version of Aurora Digital marketing agency advertisement with a service icon grid and dashboard mockup",
+    category: "Brand & Advertising",
+    tags: ["branding", "advertising", "graphic-design"],
+    concept: "The first design pass for a digital-marketing agency's promotional advertisement, establishing the core layout: a service grid, a growth-focused headline, and a dashboard visual as proof of results.",
+    direction: "A dark, dashboard-style aesthetic with gold accents positions the agency as data-driven and premium; icons stand in for each service line while a laptop-and-phone mockup shows a sample analytics dashboard.",
+    style: "Corporate, modern, premium.",
+    tools: "Photoshop — layout, iconography, and mockup compositing.",
+    outcome: "An initial creative concept for an agency's advertising asset, later refined into a more detailed second version (see \"Agency Ad — Final Version\")."
+  },
+  {
+    id: "aurora-v2",
+    title: "Aurora Digital — Agency Ad (Final Version)",
+    image: "assets/images/aurora-v2.jpeg",
+    alt: "Final version of Aurora Digital marketing agency advertisement with detailed service descriptions, dashboard, and trust indicators",
+    category: "Brand & Advertising",
+    tags: ["branding", "advertising", "graphic-design"],
+    concept: "The refined, final version of the Aurora Digital agency advertisement — expanding the first pass with fuller service descriptions, a detailed live-metrics dashboard, trust indicators, and an industries-served strip.",
+    direction: "Every service icon now carries a short benefit line, the dashboard mockup shows specific revenue and conversion figures for credibility, and a bottom band of value propositions and a phone number closes the layout the way a real agency landing page or pitch deck would.",
+    style: "Corporate, premium, data-driven.",
+    tools: "Photoshop — full layout refinement, iconography, and dashboard UI mockup design.",
+    outcome: "A polished, presentation-ready agency advertisement that shows the design progressing from an initial concept to a client-ready final layout — a direct example of the idea-to-execution process."
+  }
+];
+
+const CATEGORY_ICON = {
+  "Movie Poster": "🎬",
+};
+
+/* ---------------------------------------------------------
+   RENDER PROJECT GRID
+--------------------------------------------------------- */
+const grid = document.getElementById("projectGrid");
+
+function renderProjects(){
+  grid.innerHTML = PROJECTS.map(p => `
+    <article class="project-card" data-tags="${p.tags.join(' ')}" data-id="${p.id}" tabindex="0">
+      <img src="${p.image}" alt="${p.alt}" loading="lazy">
+      <div class="project-overlay">
+        <span class="project-category">${p.category}</span>
+        <h3 class="project-title">${p.title}</h3>
+        <span class="project-view">View Project Details →</span>
+      </div>
+    </article>
+  `).join("");
+
+  // reveal-on-scroll for cards
+  document.querySelectorAll(".project-card").forEach(card => cardObserver.observe(card));
+
+  // click / keyboard to open modal
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => openModal(card.dataset.id));
+    card.addEventListener("keypress", (e) => {
+      if(e.key === "Enter") openModal(card.dataset.id);
+    });
+  });
+}
+
+/* ---------------------------------------------------------
+   INTERSECTION OBSERVER — card reveal
+--------------------------------------------------------- */
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("in-view");
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+/* ---------------------------------------------------------
+   FILTERING
+--------------------------------------------------------- */
+const filterBar = document.getElementById("filterBar");
+
+filterBar.addEventListener("click", (e) => {
+  const btn = e.target.closest(".filter-btn");
+  if(!btn) return;
+
+  filterBar.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+
+  const filter = btn.dataset.filter;
+  document.querySelectorAll(".project-card").forEach(card => {
+    const tags = card.dataset.tags.split(" ");
+    const match = filter === "all" || tags.includes(filter);
+    card.classList.toggle("hidden-card", !match);
+  });
+});
+
+/* ---------------------------------------------------------
+   MODAL
+--------------------------------------------------------- */
+const overlay = document.getElementById("modalOverlay");
+const modalImage = document.getElementById("modalImage");
+const modalCategory = document.getElementById("modalCategory");
+const modalTitle = document.getElementById("modalTitle");
+const modalConcept = document.getElementById("modalConcept");
+const modalDirection = document.getElementById("modalDirection");
+const modalStyle = document.getElementById("modalStyle");
+const modalTools = document.getElementById("modalTools");
+const modalOutcome = document.getElementById("modalOutcome");
+
+function openModal(id){
+  const p = PROJECTS.find(proj => proj.id === id);
+  if(!p) return;
+
+  modalImage.src = p.image;
+  modalImage.alt = p.alt;
+  modalCategory.textContent = p.category;
+  modalTitle.textContent = p.title;
+  modalConcept.textContent = p.concept;
+  modalDirection.textContent = p.direction;
+  modalStyle.textContent = p.style;
+  modalTools.textContent = p.tools;
+  modalOutcome.textContent = p.outcome;
+
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(){
+  overlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("modalClose").addEventListener("click", closeModal);
+overlay.addEventListener("click", (e) => { if(e.target === overlay) closeModal(); });
+document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeModal(); });
+
+/* ---------------------------------------------------------
+   HEADER SCROLL STATE
+--------------------------------------------------------- */
+const header = document.getElementById("siteHeader");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 40);
+}, { passive: true });
+
+/* ---------------------------------------------------------
+   MOBILE NAV
+--------------------------------------------------------- */
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const mobileNav = document.getElementById("mobileNav");
+
+function toggleMobileNav(open){
+  const isOpen = open !== undefined ? open : !mobileNav.classList.contains("open");
+  mobileNav.classList.toggle("open", isOpen);
+  hamburgerBtn.classList.toggle("open", isOpen);
+  hamburgerBtn.setAttribute("aria-expanded", isOpen);
+  document.body.style.overflow = isOpen ? "hidden" : "";
+}
+
+hamburgerBtn.addEventListener("click", () => toggleMobileNav());
+document.querySelectorAll(".mobile-nav-link, .mobile-nav-cta").forEach(link => {
+  link.addEventListener("click", () => toggleMobileNav(false));
+});
+
+/* ---------------------------------------------------------
+   ACTIVE NAV LINK ON SCROLL
+--------------------------------------------------------- */
+const sections = ["home","about","work","skills","experience","contact"]
+  .map(id => document.getElementById(id))
+  .filter(Boolean);
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.toggle("active-link", link.getAttribute("href") === `#${id}`);
+      });
+    }
+  });
+}, { threshold: 0.4, rootMargin: "-80px 0px -50% 0px" });
+
+sections.forEach(sec => sectionObserver.observe(sec));
+
+/* ---------------------------------------------------------
+   GENERIC SCROLL-REVEAL for [data-reveal] and .fade-up
+--------------------------------------------------------- */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("revealed");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll("[data-reveal]").forEach(el => revealObserver.observe(el));
+
+// Auto fade-up for common section blocks (single orchestrated pattern, not scattered per-card)
+document.querySelectorAll(
+  ".about-content, .about-media, .areas-grid, .skills-grid, .process-track, .experience-grid, .career-grid, .contact-grid, .work-intro, .filter-bar"
+).forEach(el => {
+  el.classList.add("fade-up");
+  revealObserver.observe(el);
+});
+
+/* ---------------------------------------------------------
+   HERO LOAD-IN SEQUENCE
+--------------------------------------------------------- */
+window.addEventListener("DOMContentLoaded", () => {
+  renderProjects();
+
+  // staggered hero reveal
+  const heroReveals = document.querySelectorAll(".hero [data-reveal]");
+  heroReveals.forEach((el, i) => {
+    setTimeout(() => el.classList.add("revealed"), 200 + i * 140);
+  });
+
+  const heroLines = document.querySelectorAll(".hero-title .reveal-line span");
+  heroLines.forEach((el, i) => {
+    el.style.transform = "translateY(110%)";
+    el.style.opacity = "0";
+    el.style.transition = `transform .9s cubic-bezier(.22,.68,0,1) ${0.15 + i * 0.12}s, opacity .9s ease ${0.15 + i * 0.12}s`;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.transform = "translateY(0)";
+        el.style.opacity = "1";
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
